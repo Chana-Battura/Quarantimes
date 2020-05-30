@@ -1,83 +1,32 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-  <title>The Roof Of The Planet: Mount Everest</title>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>{{ title }}</title>
+  <meta name="description" content="A bootstrap for my Flask projects">
+  <meta name="author" content="Luiz Lima">
+  <meta name="theme-color" content="transparent">
+  <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="transparent">
+  <link rel="apple-touch-icon" href="{{ url_for('static', filename='images/icons/icon-152x152.png') }}">
+
+  <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+
 </head>
-<style>
-  body {
-    background-image: url('https://images.unsplash.com/photo-1513023840371-dd774fcaee5b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
-    background-repeat: no-repeat;
-    background-size: auto;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-
-  img{
-    width: 60%;
-    position: relative;
-    margin-top: 30px;
-    border-radius: 15%;
-    box-shadow: 0 0 2px 2px white inset;
-  }
-
-  @keyframes image {
-      0% { -webkit-filter: blur(0px);}
-      50% { -webkit-filter: blur(4px);}
-      100% { -webkit-filter: blur(0px);}
-  }
-  img:hover{
-
-  animation-name: image;
-  animation-duration: 4s;
-  }
-  .one{
-    background-image: linear-gradient(to top, rgba(48, 207, 208, 0.5) 0%, #330867 100%);
-    box-shadow: 0 0 2px 2px white inset;
-    border-radius: 5%;
-  }
-  .two{
-    background-image: linear-gradient(to top, rgba(32,156,255,0.3) 0%, #68e0cf 100%);
-    box-shadow: 0 0 2px 2px white inset;
-    border-radius: 5%;
-  }
-
-  .first{
-    margin: 20px;
-    color:White;
-    font-family:Optima;
-    text-align: center;
-  }
-  p{
-    margin: 20px;
-    padding-bottom: 20px;
-    color:White;
-    font-family:Optima;
-    text-align: center;
-  }
-</style>
-
-<a href = "mailto:1075499@lammersvilleusd.net"><h1 style="color:White; font-family:Optima; font-size:70px; text-align:center;">
-  The Himalayas: Abode of the Snow</h1></a>
-<h3 style="color:White; font-family:Optima; text-align:center;">
-  Click on the text above if you wish to email be about this webpage!</h1>
-<h1 style="color:White; font-family:Optima; text-align:center;">Created By Charan Battula</h4>
-
 
 <body>
-  <div class = 'one'>
-    <p><a href="https://en.wikipedia.org/wiki/Himalayas"><img src="https://live.staticflickr.com/2374/1791403575_5738387b6c_b.jpg" alt="The Sunlight On The Mountain" border="1px" ></a></p>
-    <h2 class="first">The Prevelace of the Himalayas</h2>
-    <p> <strong>The Himalayas are known for their jewel-like crescents that tower the Asian continent.  However, its existence is of the utmost importance.  An example of this is the country of India.  India's major rivers begin their journey in the Himalayas.  Its climate influence brings monsoons to India. It creates some of the most fertile of lands, filled with lush forests.   The Himalayas bring minerals to the riverbanks of India.  With these material benefits, there are other types of benefits.  The Himalayas are one of the most auspicious sanctums of religious purposes. Lined with shrines to worship and meditate at, Himalayas provide a calm environment. Known as the "The Land of Snow" by the regional languages, it is one of, if not the, most famous mountain range. Clink on the Image to learn more about the Himalayas</strong> </p>
-  </div>
-  <div class = "two">
-    <p><a href="https://en.wikipedia.org/wiki/Mount_Everest"><img src="https://images.unsplash.com/photo-1486911278844-a81c5267e227?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="The Sunlight On The Mountain" border="1px"></a></p>
-    <h2 class="first">The Peak of the Planet</h2>
-    <p> <strong>Mount Everest, known to local Nepaleans as Sagarmatha, meaning 'Goddess of the Sky'.  Mount Everest stands at 29,029 feet (8,848 meters) above sea level, making it the highest mountain on Earth.  Its sheer scale and beauty is one that many marvel as the power of nature.  Climbing Mount Everest is a feat not for the fain of heart.  More than 300 people have passed away climbing the peak.  Its frost landscape and the jaged rocks makes it a treacherous climb.  But, if one were to climb it, they would reach the literal pinnacle of the planet, gazing upon the opaque snow that blankets the Himalayas.  Discovered in 1856, the mountain grows at a rate of about 2.4 in/6.1cm per year.  This mountain truly is the jewel of the Himalayas.  If you want to learn more about Mount Everest, click on the image.</strong> </p>
-  </div>
 
-</div>
+  {% block body %}{% endblock %}
+
+  <script type="text/javascript" src="{{ url_for('static', filename='js/app.js') }}"></script>
 </body>
 
 </html>
