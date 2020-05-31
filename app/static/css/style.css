@@ -9,15 +9,6 @@
     --divider-color: #BDBDBD;
 }
 
-main{
-   width: 100%;
-   margin: 0;
-   padding: 0;
-   background-color:#000
-   top: 0;
-   left: 0;
-}
-
 *, *:before, *:after {
   margin: 0;
   padding: 0;
@@ -31,7 +22,9 @@ body {
   height: 100vh;
   font-family: OpenSans, sans-serif;
 }
-
+main{
+  width: 100%
+}
 body > * {
   flex-shrink: 0;
   width: 100%;
@@ -147,6 +140,7 @@ a:hover {
 
 @media screen and (min-width: 800px) {
   main {
+    margin: 20px auto;
     border-radius: 10px;
   }
   img {
@@ -154,6 +148,7 @@ a:hover {
     height: 200px;
   }
 }
+
 @charset "UTF-8";
 /*!
 * Start Bootstrap - Grayscale v6.0.1 (https://startbootstrap.com/themes/grayscale)
