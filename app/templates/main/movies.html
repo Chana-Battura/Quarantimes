@@ -1,5 +1,18 @@
-{% extends "layout.html" %}
-{% block main %}<!-- Page Content -->
+<!-- Page Content -->
+<link href="../../css/style.css" rel="stylesheet" />
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="./">Home</a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu<i class="fas fa-bars"></i></button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="movies">Movies</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="chat">Chat</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="news">News</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
 <div class="container">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">
@@ -8,10 +21,7 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js">
   </script>
-  <!-- Page Heading -->
-  <h1 class="my-4">Page Heading
-    <small>Secondary Text</small>
-  </h1>
+
 
   <div class="row">
 
@@ -22,7 +32,7 @@
         <a href="#"><img class="card-img-top" src={{i['full-size cover url']}} alt=""></a>
         <div class="card-body">
           <h4 class="card-title">
-            <a href="#">{{i['title']}}</a>
+            <a href='#'>{{i['title']}}</a>
           </h4>
           <p class="card-text">{{i.summary()}}</p>
         </div>
@@ -126,5 +136,3 @@
     </ul>
 
   </div>
-
-  {% endblock %}
