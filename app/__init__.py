@@ -27,10 +27,11 @@ def create_app():
     # db.init_app(app)
     # migrate.init_app(app, db)
 
-    from app.controller import (
-        main, pwa
-    )
-    app.register_blueprint(main.bp)
-    app.register_blueprint(pwa.bp)
+    with app.app_context():
+        from app.controller import (
+            main, pwa
+        )
+        app.register_blueprint(main.bp)
+        app.register_blueprint(pwa.bp)
 
-    return app
+        return app
