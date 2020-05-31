@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+  <html lang="en">
+  <style>
+input[type=text], select {
+
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  right:0;
+  left:0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+html {
+  background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+  background-size: cover;
+  height: 100%;
+  overflow: hidden;
+
+}
+
+.container {
+
+  border: 2px solid #dedede;
+  background-color: #f1f1f1;
+  border-radius: 20px;
+  padding: 10px;
+  margin: 10px 0;
+  box-sizing: content-box;
+  width: auto;
+  display: inline-block;
+}
+/* Clear floats */
+.container::after {
+  content: "";
+  clear: both;
+  display: table;
+  width: auto;
+  box-sizing: content-box;
+  display: inline-block;
+}
+
+</style>
+
+
+
+
+
+	  <head>
+    <title>Flask_Chat_App</title>
+  </head>
+  <body>
+
+    <h3 style='color: #ccc;font-size: 30px;'>No message yet..</h3>
+    <div class="message_holder"></div>
+
+    <form action="" method="POST">
+      <input type="text" class="username" placeholder="User Name"/>
+      <input type="text" class="message" placeholder="Messages"/>
+      <input type="submit"/>
+    </form>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js"></script>
+    <script type="text/javascript">
+      var socket = io.connect('http://' + document.domain + ':' + location.port);
+
+      socket.on( 'connect', function() {
+        socket.emit( 'my event', {
+          data: 'User Connected'
+        } )
+        var form = $( 'form' ).on( 'submit', function( e ) {
+          e.preventDefault()
+          let user_name = $( 'input.username' ).val()
+          let user_input = $( 'input.message' ).val()
+          socket.emit( 'my event', {
+            user_name : user_name,
+            message : user_input
+          } )
+          $( 'input.message' ).val( '' ).focus()
+        } )
+      } )
+      socket.on( 'my response', function( msg ) {
+        console.log( msg )
+
+		String.prototype.toColor = function() {
+    		var colors = ["#e51c23", "#e91e63", "#9c27b0", "#673ab7", "#3f51b5", "#5677fc", "#03a9f4", "#00bcd4", "#009688", "#259b24", "#8bc34a", "#afb42b", "#ff9800", "#ff5722", "#795548", "#607d8b"]
+    		var colors = ["#ff6666", "#ffd966", "#b3ff66", "#66ff8c", "#66ffff", "#6699ff", "#8c66ff", "#ff66ff", "#ff668c"]
+
+    		var hash = 0;
+    		if (this.length === 0) return hash;
+    		for (var i = 0; i < this.length; i++) {
+        		hash = this.charCodeAt(i) + ((hash << 5) - hash);
+        		hash = hash & hash;
+    		}
+    		hash = ((hash % colors.length) + colors.length) % colors.length;
+    		return colors[hash];
+}
+
+
+
+        if( typeof msg.user_name !== 'undefined' ) {
+          $( 'h3' ).remove()
+
+
+			$( 'div.message_holder' ).append(  '<p class="container" style = "font-family:courier,arial,helvetica; background:'+msg.user_name.toString().toColor().toString()+'"><b style="color: #000">'+msg.user_name+'</b> '+msg.message+'</p><br>'  )
+			console.log(msg.user_name.toString().toColor().toString())
+        }
+      })
+    </script>
+
+  </body>
+
+
+
+  </html>

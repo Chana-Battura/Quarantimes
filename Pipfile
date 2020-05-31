@@ -13,6 +13,7 @@ Flask-Migrate = "*"
 Flask-SSLify = "*"
 flask-sslify = "*"
 imdbpy = "*"
+flask_socketio = "*"
 
 [dev-packages]
 
