@@ -8,6 +8,8 @@ from flask import current_app as app
 from flask_socketio import SocketIO
 socketio = SocketIO(app._get_current_object())
 
+import requests
+
 
 bp = Blueprint('main', __name__)
 
@@ -16,6 +18,21 @@ bp = Blueprint('main', __name__)
 def index():
     return render_template('main/index.html',
                            title='Flask-PWA')
+
+@bp.route('/news')
+def news():
+    key = '6c7384f5ff6c451ea22f00e0aea9cb60'
+    url = 'https://newsapi.org/v2/everything?'
+    parameters = {
+        'q': 'COVID-19',
+        'pageSize': 12,
+        'apiKey' : key
+    }
+    response = requests.get(url, params=parameters)
+    response_json = response.json()
+
+    return render_template('main/news.html',response_json = response_json['articles'] )
+
 
 @bp.route('/movies')
 def movies():
