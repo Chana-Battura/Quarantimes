@@ -4124,6 +4124,7 @@ input[type=button].btn-block {
 }
 
 .nav {
+  background-color: black;
   display: flex;
   flex-wrap: wrap;
   padding-left: 0;

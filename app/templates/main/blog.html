@@ -16,7 +16,6 @@
     </div>
 </nav>
 
-
 <div class="container">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">
@@ -26,18 +25,19 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js">
   </script>
 
+
   <div class="row">
 
 
-    {% for i in response_json: %}
+    {% for i in things: %}
     <div class="col-lg-4 col-sm-6 mb-4">
       <div class="card h-100">
-        <a href="#"><img class="card-img-top" src={{i['urlToImage']}} alt=""></a>
+        <a href="#"><img class="card-img-top" src={{i[1]}} alt=""></a>
         <div class="card-body">
           <h4 class="card-title">
-            <a href={{i['url']}}>{{i['title']}}</a>
+            <a href='{{i[0]}}'>{{i[2]}}</a>
           </h4>
-          <p class="card-text">{{i['description']}}</p>
+          <p class="card-text">{{i[3]}}</p>
         </div>
       </div>
     </div>
@@ -139,5 +139,4 @@
     </ul>
 
   </div>
-</div>
-{% endblock %}
+  {% endblock %}
